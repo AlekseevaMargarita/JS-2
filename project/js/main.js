@@ -6,6 +6,7 @@
 Из - за чего это происходит ? Как это исправить ?
 */
 
+// Вариант 1 - добавлены значения по умолчанию для аргументов функции.
 
 /* const products = [
   { id: 1, title: 'Notebook', price: 1000 },
@@ -15,7 +16,7 @@
   {}
 ];
 
-//Добавлены значения по умолчанию для аргументов функции
+// Добавлены значения по умолчанию для аргументов функции.
 const renderProduct = (title = 'Название товара отсутствует', price = 0) => {
   return `<div class="product-item">
             <img class="img-cart" src="#" alt="image">
@@ -33,7 +34,10 @@ const renderProducts = list => {
 
 renderProducts(products); */
 
-//упрощаем запись функции renderProduct
+
+// Вариант 2 - выполнены задания 2 и 3.
+
+// Упрощаем запись функции renderProduct.
 const products = [
   { id: 1, title: 'Notebook', price: 1000 },
   { id: 2, title: 'Mouse', price: 100 },
@@ -51,10 +55,46 @@ const renderProduct = item => {
 };
 
 const renderProducts = list => {
-  //избавляемся от запятой
+  // Избавляемся от запятой.
   const productList = list.map(item => renderProduct(item)).join('');
   console.log(productList);
   document.querySelector('.products').innerHTML = productList;
 };
 
 renderProducts(products);
+
+
+// Вариант 3 - просто попробовала сделать аналог для варианта 1.
+
+/* const products = [
+  { id: 1, title: 'Notebook', price: 1000 },
+  { id: 2, title: 'Mouse', price: 100 },
+  { id: 3, title: 'Keyboard', price: 250 },
+  { id: 4, title: 'Gamepad', price: 150 },
+  {}
+];
+
+const renderProduct = item => {
+  // Замена undefined значениями.
+  return `<div class="product-item">
+            <img class="img-cart" src="#" alt="image">
+            <h3>${isUndefined(item.title) ? 'Наименование отсутствует' : item.title}</h3>
+            <p>${isUndefined(item.price) ? 0 : item.price} руб.</p>
+            <button class="by-btn">Добавить</button>
+          </div>`;
+};
+
+// Проверка на undefined.
+function isUndefined(value) {
+  if (value === undefined) {
+    return true;
+  }
+}
+
+const renderProducts = list => {
+  const productList = list.map(item => renderProduct(item)).join('');
+  console.log(productList);
+  document.querySelector('.products').innerHTML = productList;
+};
+
+renderProducts(products); */
