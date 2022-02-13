@@ -19,7 +19,7 @@
 // Добавлены значения по умолчанию для аргументов функции.
 const renderProduct = (title = 'Название товара отсутствует', price = 0) => {
   return `<div class="product-item">
-            <img class="img-cart" src="#" alt="image">
+            <img class="img-card" src="#" alt="image">
             <h3>${title}</h3>
             <p>${price} руб.</p>
             <button class="by-btn">Добавить</button>
@@ -47,7 +47,7 @@ const products = [
 
 const renderProduct = item => {
   return `<div class="product-item">
-            <img class="img-cart" src="#" alt="image">
+            <img class="img-card" src="#" alt="image">
             <h3>${item.title}</h3>
             <p>${item.price} руб.</p>
             <button class="by-btn">Добавить</button>
@@ -77,7 +77,7 @@ renderProducts(products);
 const renderProduct = item => {
   // Замена undefined значениями.
   return `<div class="product-item">
-            <img class="img-cart" src="#" alt="image">
+            <img class="img-card" src="#" alt="image">
             <h3>${isUndefined(item.title) ? 'Наименование отсутствует' : item.title}</h3>
             <p>${isUndefined(item.price) ? 0 : item.price} руб.</p>
             <button class="by-btn">Добавить</button>
