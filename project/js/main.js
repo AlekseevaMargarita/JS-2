@@ -7,6 +7,33 @@
 */
 
 
+/* const products = [
+  { id: 1, title: 'Notebook', price: 1000 },
+  { id: 2, title: 'Mouse', price: 100 },
+  { id: 3, title: 'Keyboard', price: 250 },
+  { id: 4, title: 'Gamepad', price: 150 },
+  {}
+];
+
+//Добавлены значения по умолчанию для аргументов функции
+const renderProduct = (title = 'Название товара отсутствует', price = 0) => {
+  return `<div class="product-item">
+            <img class="img-cart" src="#" alt="image">
+            <h3>${title}</h3>
+            <p>${price} руб.</p>
+            <button class="by-btn">Добавить</button>
+          </div>`;
+};
+
+const renderProducts = list => {
+  const productList = list.map(item => renderProduct(item.title, item.price));
+  console.log(productList);
+  document.querySelector('.products').innerHTML = productList;
+};
+
+renderProducts(products); */
+
+//упрощаем запись функции renderProduct
 const products = [
   { id: 1, title: 'Notebook', price: 1000 },
   { id: 2, title: 'Mouse', price: 100 },
@@ -14,16 +41,18 @@ const products = [
   { id: 4, title: 'Gamepad', price: 150 },
 ];
 
-const renderProduct = (title, price) => {
+const renderProduct = item => {
   return `<div class="product-item">
-            <h3>${title}</h3>
-            <p>${price}</p>
+            <img class="img-cart" src="#" alt="image">
+            <h3>${item.title}</h3>
+            <p>${item.price} руб.</p>
             <button class="by-btn">Добавить</button>
           </div>`;
 };
 
 const renderProducts = list => {
-  const productList = list.map(item => renderProduct(item.title, item.price));
+  //избавляемся от запятой
+  const productList = list.map(item => renderProduct(item)).join('');
   console.log(productList);
   document.querySelector('.products').innerHTML = productList;
 };

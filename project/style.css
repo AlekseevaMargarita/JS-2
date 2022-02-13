@@ -73,4 +73,10 @@ button:hover {
   -ms-flex-item-align: end;
       align-self: flex-end;
 }
+
+.img-cart {
+  width: 220px;
+  height: 220px;
+  border: 1px solid black;
+}
 /*# sourceMappingURL=style.css.map */
