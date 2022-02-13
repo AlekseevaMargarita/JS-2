@@ -1,8 +1,17 @@
+/*1. Добавьте стили для верхнего меню, товара, списка товаров 
+и кнопки вызова корзины.
+2. Добавьте значения по умолчанию для аргументов функции.
+Как можно упростить или сократить запись функций?
+* 3. Сейчас после каждого товара на странице выводится запятая.
+Из - за чего это происходит ? Как это исправить ?
+*/
+
+
 const products = [
-  {id: 1, title: 'Notebook', price: 1000},
-  {id: 2, title: 'Mouse', price: 100},
-  {id: 3, title: 'Keyboard', price: 250},
-  {id: 4, title: 'Gamepad', price: 150},
+  { id: 1, title: 'Notebook', price: 1000 },
+  { id: 2, title: 'Mouse', price: 100 },
+  { id: 3, title: 'Keyboard', price: 250 },
+  { id: 4, title: 'Gamepad', price: 150 },
 ];
 
 const renderProduct = (title, price) => {
