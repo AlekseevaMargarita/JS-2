@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="feedback.css">
+</head>
+
+<body>
+    <form action="">
+        <input type="text" id="name" placeholder="name"> <br>
+        <input type="tel" id="phone" placeholder="+7(000)000-0000"> <br>
+        <input type="email" id="email" placeholder="email"> <br>
+        <textarea name="message" id="message" cols="30" rows="10"></textarea> <br>
+        <input type="submit" id="submit" value="Отправить">
+
+    </form>
+</body>
+
+<script src="feedback.js"></script>
+<script>
+    document.getElementById('submit').addEventListener('click', e => {
+        if (!validation()) {
+            e.preventDefault();
+        }
+    })
+</script>
+
+
+</html>
