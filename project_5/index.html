@@ -21,6 +21,7 @@
                 </form>
                 <button class="btn-cart" type="button" @click="isVisibleCart = !isVisibleCart">Корзина</button>
                 <div class="cart-block" v-show="isVisibleCart">
+                    <p v-if="!cartItems.length">Корзина пуста</p>
                     <div class="cart-item" v-for="item of cartItems" :key="item.id_product">
                         <div class="product-bio">
                             <img :src="imgCart" alt="Some img">
@@ -40,6 +41,7 @@
         </header>
         <main>
             <div class="products">
+                <p v-if="!filtered.length">Товары не найдены</p>
                 <div class="product-item" v-for="product of filtered" :key="product.id_product">
                     <img :src="imgCatalog" alt="Some img">
                     <div class="desc">
