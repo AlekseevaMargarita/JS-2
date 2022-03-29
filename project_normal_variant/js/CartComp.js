@@ -1,22 +1,22 @@
 Vue.component('cart', {
-    data(){
-      return {
-          imgCart: 'https://via.placeholder.com/50x100',
-          cartUrl: '/getBasket.json',
-          cartItems: [],
-          showCart: false,
-      }
+    data() {
+        return {
+            imgCart: 'https://via.placeholder.com/50x100',
+            cartUrl: '/getBasket.json',
+            cartItems: [],
+            showCart: false,
+        }
     },
     methods: {
-        addProduct(product){
+        addProduct(product) {
             this.$parent.getJson(`${API}/addToBasket.json`)
                 .then(data => {
-                    if(data.result === 1){
+                    if (data.result === 1) {
                         let find = this.cartItems.find(el => el.id_product === product.id_product);
-                        if(find){
+                        if (find) {
                             find.quantity++;
                         } else {
-                            let prod = Object.assign({quantity: 1}, product);
+                            let prod = Object.assign({ quantity: 1 }, product);
                             this.cartItems.push(prod)
                         }
                     } else {
@@ -27,8 +27,8 @@ Vue.component('cart', {
         remove(item) {
             this.$parent.getJson(`${API}/deleteFromBasket.json`)
                 .then(data => {
-                    if(data.result === 1) {
-                        if(item.quantity>1){
+                    if (data.result === 1) {
+                        if (item.quantity > 1) {
                             item.quantity--;
                         } else {
                             this.cartItems.splice(this.cartItems.indexOf(item), 1)
@@ -37,10 +37,10 @@ Vue.component('cart', {
                 })
         },
     },
-    mounted(){
+    mounted() {
         this.$parent.getJson(`${API + this.cartUrl}`)
             .then(data => {
-                for(let el of data.contents){
+                for (let el of data.contents) {
                     this.cartItems.push(el);
                 }
             });

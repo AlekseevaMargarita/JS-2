@@ -1,5 +1,5 @@
 Vue.component('products', {
-    data(){
+    data() {
         return {
             catalogUrl: '/catalogData.json',
             products: [],
@@ -8,15 +8,15 @@ Vue.component('products', {
         }
     },
     methods: {
-        filter(){
-            let regexp = new RegExp(this.userSearch, 'i');
+        filter(userSearch) {
+            let regexp = new RegExp(userSearch, 'i');
             this.filtered = this.products.filter(el => regexp.test(el.product_name));
         }
     },
-    mounted(){
+    mounted() {
         this.$parent.getJson(`${API + this.catalogUrl}`)
             .then(data => {
-                for(let el of data){
+                for (let el of data) {
                     this.products.push(el);
                     this.filtered.push(el);
                 }
@@ -24,6 +24,7 @@ Vue.component('products', {
     },
     template: `
         <div class="products">
+            <p v-if="!filtered.length">Товары не найдены</p>
             <product v-for="item of filtered" :key="item.id_product" :img="imgCatalog" :product="item"></product>
         </div>
     `
