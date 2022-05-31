@@ -1,4 +1,5 @@
 Vue.component('products', {
+
     data() {
         return {
             catalogUrl: '/catalogData.json',
@@ -24,7 +25,8 @@ Vue.component('products', {
     },
     template: `
         <div class="products">
-            <p v-if="!filtered.length">Товары не найдены</p>
+            <p v-if="!filtered.length && $root.isLoadingError === false">Товары не найдены</p>
+            <loadingError v-if="$root.isLoadingError === true" />
             <product v-for="item of filtered" :key="item.id_product" :img="imgCatalog" :product="item"></product>
         </div>
     `

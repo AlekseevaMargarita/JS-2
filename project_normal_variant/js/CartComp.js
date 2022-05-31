@@ -49,7 +49,8 @@ Vue.component('cart', {
         <div>
             <button class="btn-cart" type="button" @click="showCart = !showCart">Корзина</button>
             <div class="cart-block" v-show="showCart">
-                <p v-if="!cartItems.length">Корзина пуста</p>
+                <p v-if="!cartItems.length && $root.isLoadingError === false">Корзина пуста</p>
+                <loadingError v-if="$root.isLoadingError === true" />
                 <cart-item class="cart-item" 
                 v-for="item of cartItems" 
                 :key="item.id_product"
